@@ -17,7 +17,7 @@
 # Author: Francesco Conti (f.conti@unibo.it)
 #
 
-export N_PROC=20
+export N_PROC=2
 export P_STALL=0.04
 TIMEOUT=300
 

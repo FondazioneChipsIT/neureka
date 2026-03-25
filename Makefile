@@ -31,8 +31,8 @@ ifneq (,$(wildcard /etc/iis.version))
 else
 	QUESTA ?=
 endif
-BENDER ?= sim/bender
-WAVES          ?= $(mkfile_path)/sim/wave.do
+BENDER ?= bender
+WAVES  ?= $(mkfile_path)/sim/wave.do
 
 compile_script ?= compile.tcl
 compile_flag   ?= -suppress 2583 -suppress 13314
@@ -61,31 +61,20 @@ endif
 VSIM_INI=$(HW_BUILD_DIR)/modelsim.ini
 VSIM_LIBS=$(HW_BUILD_DIR)/work
 
-GATE_LIB_NAME ?= sc7p5mcpp84_12lpplus_base_slvt_c14
-GATE_LIB_PATH ?= /usr/pack/gf-12-kgf/arm/gf/12lpplus/sc7p5mcpp84_base_slvt_c14/r5p0//questa.dz/2021.2/sc7p5mcpp84_12lpplus_base_slvt_c14
-
 # Build implicit rules
 $(HW_BUILD_DIR):
 	mkdir -p $(HW_BUILD_DIR)
 
 SHELL := /bin/bash
 
-gate_libs = -L sc7p5mcpp84_12lpplus_base_slvt_c14
-
-# Download bender
 sim:
 	mkdir -p sim
 
-$(BENDER): sim
-	curl --proto '=https'  \
-	--tlsv1.2 https://pulp-platform.github.io/bender/init -sSf | sh -s -- 0.24.0
-	mv bender $(BENDER)
-
-checkout: $(BENDER)
+checkout: sim
 	 $(BENDER) checkout
 
 .PHONY: update-ips
-update-ips: $(BENDER)
+update-ips:
 	git submodule update --init
 	$(BENDER) update
 	$(BENDER) script vsim        \
@@ -95,7 +84,7 @@ update-ips: $(BENDER)
 	> sim/${compile_script}
 
 .PHONY: generate-scripts
-generate-scripts: $(BENDER)
+generate-scripts:
 ifeq ($(SYNTHESIS), 0)
 	$(BENDER) script vsim        \
 	--vlog-arg="$(compile_flag)" \
