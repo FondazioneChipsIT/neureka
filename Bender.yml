@@ -5,9 +5,9 @@ package:
     - "Francesco Conti <f.conti@unibo.it>"
 
 dependencies:
-  hwpe-stream:  { git: "https://github.com/LuigiGhionda/hwpe-stream.git", rev: "4b774dd" } # branch: rt/jetc
-  hci:          { git: "https://github.com/pulp-platform/hci.git", rev: "38fc2a7"  } # branch: lg/ecc_rebase_v2.1.1
-  hwpe-ctrl:    { git: "https://github.com/LuigiGhionda/hwpe-ctrl.git", rev: "5498496" }
+  hwpe-stream:  { git: "https://github.com/LuigiGhionda/hwpe-stream.git", rev: "4c676e44ccf70a0d8dc67a84c6e02372bfd22557" } # branch: safe-neureka
+  hci:          { git: "https://github.com/FondazioneChipsIT/hci.git",    rev: "3e63936991569d0b1e315d6914478937b37bb338" }
+  hwpe-ctrl:    { git: "https://github.com/LuigiGhionda/hwpe-ctrl.git",   rev: "3156cabafff3b4fb90c1c78fb02b912a931a037c" } # branch: safe-neureka
   register_interface: { git: "https://github.com/pulp-platform/register_interface.git", version: 0.3.1 }
   zeroriscy:    { git: "https://github.com/yvantor/ibex.git", rev: "bender", target: "neureka_standalone" } # for verification only
   common_cells: { git: "https://github.com/pulp-platform/common_cells.git", version: 1.39.0 }

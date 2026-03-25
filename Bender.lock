@@ -37,10 +37,10 @@ packages:
       Git: https://github.com/pulp-platform/common_verification.git
     dependencies: []
   hci:
-    revision: 38fc2a7eea7978df52434e66ee04a40788fd86b7
+    revision: 3e63936991569d0b1e315d6914478937b37bb338
     version: null
     source:
-      Git: https://github.com/pulp-platform/hci.git
+      Git: https://github.com/FondazioneChipsIT/hci.git
     dependencies:
     - cluster_interconnect
     - common_cells
@@ -49,14 +49,14 @@ packages:
     - redundancy_cells
     - register_interface
   hwpe-ctrl:
-    revision: 549849648984233d013e310f45df1207a6eae375
+    revision: 3156cabafff3b4fb90c1c78fb02b912a931a037c
     version: null
     source:
       Git: https://github.com/LuigiGhionda/hwpe-ctrl.git
     dependencies:
     - tech_cells_generic
   hwpe-stream:
-    revision: 4b774dd0564db047a52dc6eaf78faed23d940bad
+    revision: 4c676e44ccf70a0d8dc67a84c6e02372bfd22557
     version: null
     source:
       Git: https://github.com/LuigiGhionda/hwpe-stream.git
